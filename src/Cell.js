@@ -1,18 +1,15 @@
 import React from "react";
 import CellClass from "./CellClass";
 import PropTypes from 'prop-types';
-//import GameConst from "./GameConst";
+import bomb from "./images/bomb1.svg";
+import boom from "./images/boom1.svg";
+import './styles/Cell.css';
 
 // --------------------------------------------------------
 // definition of 'Cell' react component
 // visual representation of 'CellClass' objects
 
-import './styles/Cell.css';
-
-import bomb from "./images/bomb1.svg";
 const bombImg = <img src={bomb} className="bomb-img" alt="bomb" />;
-
-import boom from "./images/boom1.svg";
 const boomImg = <img src={boom} className="boom-img" alt="boom" />;
 
 export const Cell = (props) => {
