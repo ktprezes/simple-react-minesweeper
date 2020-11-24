@@ -17,7 +17,7 @@ Create a naive implementation of the classic minesweeper game<br>with the javasc
 
    1.2 Handle (at the very basic level) user generated events<br>e.g.: 'left click' - open the cell, 'right click' - mark/unmark the cell (_status: in progress_).
 
-   1.3 Present the designed UI as the [website](https://ktprezes.gihub.io/simple-react-minesweeper) (_status: done_).
+   1.3 Present the designed UI as the [website](https://ktprezes.github.io/simple-react-minesweeper/) (_status: done_).
 
 2. Provide the game logic (_status:  planned_)
 
