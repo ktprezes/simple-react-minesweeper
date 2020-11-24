@@ -1,0 +1,15 @@
+.Field {
+    width: 624px;
+    padding: 8px;
+    margin: 2px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: Monaco, "Courier New", monospace;
+    font-size: 20px;
+    color: red;
+    background-color: white;
+    border: darkred solid 5px;
+    border-radius:  30px;
+
+}

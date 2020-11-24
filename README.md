@@ -2,8 +2,7 @@
 
 ## Objective
 
-Create a naive implementation of the classic minesweeper game with the javascript programming language and the react library.
-
+Create a naive implementation of the classic minesweeper game<br>with the javascript programming language and the react library.
 
 
 ## Anticipated stages

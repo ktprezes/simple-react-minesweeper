@@ -1,0 +1,15 @@
+.minesweepergame {
+    min-width: 670px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* font converted using font-converter.net. thank you! */
+@font-face {
+    font-family: "Splatish";
+    src: url("../fonts/Splatish-P5vP.woff2") format("woff2"); /* Modern Browsers */
+    font-weight: bold;
+    font-style: normal;
+}

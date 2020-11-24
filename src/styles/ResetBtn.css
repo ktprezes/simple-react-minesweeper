@@ -1,0 +1,18 @@
+.resetBtn {
+    width: 150px;
+    padding: 2px;
+    padding-top: 20px;
+    margin: 5px 5px;
+    display: inline-flex;
+    justify-content: center;
+    font-family: 'Splatish';
+    font-size: 80px;
+    line-height: 50%;
+    /*color: lightgoldenrodyellow;*/
+    color: white;
+    background-color: black;
+    border: darkred solid 2px;
+    border-radius:  38px;
+    box-shadow: 0 0 8px 5px darkred;
+}
+

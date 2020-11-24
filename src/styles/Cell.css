@@ -1,0 +1,46 @@
+.cell {
+    box-sizing: border-box;
+    width: 70px;
+    height: 70px;
+    padding: 0;
+    font-family: Monaco, "Courier New", monospace;
+    font-size: 10px;
+    font-weight: bold;
+    color: red;
+    border: 3px solid darkred;
+    border-radius: 20px;
+
+}
+
+.bomb-img {
+    width: 48px;
+    height: 48px;
+    position: relative;
+    left: 10px;
+    top: 8px;
+}
+
+.boom-img {
+    width: 64px;
+    height: 64px;
+}
+
+.closed {
+    background-color: brown;
+}
+
+.marked {
+    background-color: lightyellow;
+}
+
+.open {
+    box-shadow: 0 0 8px 5px darkred;
+}
+
+.empty {
+    background-color: white;
+}
+
+.boom {
+    background-color: lightgoldenrodyellow;
+}

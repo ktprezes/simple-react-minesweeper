@@ -1,0 +1,15 @@
+.Row {
+    width: 616px;
+    height: 70px;
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: Monaco, "Courier New", monospace;
+    font-size: 20px;
+    color: red;
+    /*background-color: white;*/
+}
+
+.Row:nth-child(even) {background: #CCC}
+.Row:nth-child(odd) {background: #FFF}

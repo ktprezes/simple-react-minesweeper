@@ -1,0 +1,15 @@
+.ControlPanel {
+    width: 636px;
+    padding: 2px  2px;
+    margin: 2px 10px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Splatish';
+    font-size: 120px;
+    line-height: 50%;
+    color: red;
+    background-color: white;
+    border: darkred solid 5px;
+    border-radius:  30px;
+}

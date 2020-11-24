@@ -1,0 +1,23 @@
+.timer {
+    width: 200px;
+    padding: 2px;
+    padding-top: 10px;
+    margin: 5px 5px;
+    display: inline-flex;
+    justify-content: center;
+    font-family: 'Splatish';
+    font-size: 80px;
+    color: red;
+    background-color: lightgoldenrodyellow;
+    border: darkred dotted 2px;
+    border-radius:  20px;
+    box-shadow: 0 0 8px 8px darkred;
+}
+
+.timer span {
+    position: relative;
+    bottom: 10px;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0 10px;
+}
