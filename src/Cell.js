@@ -5,22 +5,29 @@ import bomb from "./images/bomb1.svg";
 import boom from "./images/boom1.svg";
 import './styles/Cell.css';
 
+
 // --------------------------------------------------------
 // definition of 'Cell' react component
 // visual representation of 'CellClass' objects
 
-const bombImg = <img src={bomb} className="bomb-img" alt="bomb" />;
-const boomImg = <img src={boom} className="boom-img" alt="boom" />;
-
 export const Cell = (props) => {
 
-    const rowNo = props.r;
-    const colNo = props.c;
-    const cell  = props.cellobj;
+    const rowNo = Number(props.r);
+    const colNo = Number(props.c);
+    const cell  = props.cellObj;
+    const myCellClickHandler = props.myCellClickHandler;
     let cellContent = '';
     let auxCellClass = '';
 
-    console.log(rowNo, colNo, cell, typeof cell.bomb, typeof cell.state);
+    // non-empty Cell components (with bombImg/boomImg or bombsCount inside), when clicked,
+    // pass to the event handler as 'e.target' the child element (<img..> / <p>)
+    // NOT their own element value ( the <div className={cellClass}.. />)
+    // therefore the child elements need the dataset values ('data-r' and 'data-c') too,
+    // for the event handler to work properly
+    const bombImg = <img src={bomb} className="bomb-img" alt="bomb" data-r={rowNo} data-c={colNo} />;
+    const boomImg = <img src={boom} className="boom-img" alt="boom" data-r={rowNo} data-c={colNo} />;
+    const bombsCount = <p data-r={rowNo} data-c={colNo} >{cell.bombsAround.toString()}</p>;
+    // console.log(rowNo, colNo, cell, typeof cell.bomb, typeof cell.state);
 
     if (cell.state === 'marked') {
         cellContent = bombImg;
@@ -29,19 +36,25 @@ export const Cell = (props) => {
         cellContent = boomImg;
         auxCellClass = 'open boom';
     } else if (cell.state === 'open' && !cell.bomb) {
-        cellContent = '';
+        cellContent = cell.bombsAround === 0 ? '' : bombsCount;
         auxCellClass = 'open empty';
     } else { // default 'closed' state is here, too...
         cellContent = '';
         auxCellClass = 'closed';
     }
     let cellClass = 'cell ' + auxCellClass;
-    console.log(cellClass);
 
+    // console.log(cellClass);
+
+    // the 'data-xxx' attributes are available withing event handler function as 'dataset keys',
+    //  e.g.: 'data-r' can be accessed within the event handler function
+    // as e.target.dataset.r
     return (
         <div className={cellClass}
-             r={rowNo}
-             c={colNo}
+             data-r={rowNo}
+             data-c={colNo}
+             onClick={myCellClickHandler}
+             onContextMenu={myCellClickHandler}
         >
             {cellContent}
         </div>
@@ -51,7 +64,8 @@ export const Cell = (props) => {
 Cell.propTypes = {
     r: PropTypes.string.isRequired,
     c: PropTypes.string.isRequired,
-    cellobj: PropTypes.instanceOf(CellClass).isRequired
+    cellObj: PropTypes.instanceOf(CellClass).isRequired,
+    myCellClickHandler: PropTypes.func.isRequired
 };
 
 export default Cell;
