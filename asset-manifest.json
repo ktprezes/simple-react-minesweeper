@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/simple-react-minesweeper/static/css/main.da18cc0a.chunk.css",
-    "main.js": "/simple-react-minesweeper/static/js/main.e8c7375b.chunk.js",
-    "main.js.map": "/simple-react-minesweeper/static/js/main.e8c7375b.chunk.js.map",
+    "main.css": "/simple-react-minesweeper/static/css/main.8005a169.chunk.css",
+    "main.js": "/simple-react-minesweeper/static/js/main.bf096659.chunk.js",
+    "main.js.map": "/simple-react-minesweeper/static/js/main.bf096659.chunk.js.map",
     "runtime-main.js": "/simple-react-minesweeper/static/js/runtime-main.940eb2fe.js",
     "runtime-main.js.map": "/simple-react-minesweeper/static/js/runtime-main.940eb2fe.js.map",
-    "static/js/2.b74d5fd1.chunk.js": "/simple-react-minesweeper/static/js/2.b74d5fd1.chunk.js",
-    "static/js/2.b74d5fd1.chunk.js.map": "/simple-react-minesweeper/static/js/2.b74d5fd1.chunk.js.map",
+    "static/js/2.b5d8251d.chunk.js": "/simple-react-minesweeper/static/js/2.b5d8251d.chunk.js",
+    "static/js/2.b5d8251d.chunk.js.map": "/simple-react-minesweeper/static/js/2.b5d8251d.chunk.js.map",
     "index.html": "/simple-react-minesweeper/index.html",
-    "static/css/main.da18cc0a.chunk.css.map": "/simple-react-minesweeper/static/css/main.da18cc0a.chunk.css.map",
-    "static/js/2.b74d5fd1.chunk.js.LICENSE.txt": "/simple-react-minesweeper/static/js/2.b74d5fd1.chunk.js.LICENSE.txt",
+    "static/css/main.8005a169.chunk.css.map": "/simple-react-minesweeper/static/css/main.8005a169.chunk.css.map",
+    "static/js/2.b5d8251d.chunk.js.LICENSE.txt": "/simple-react-minesweeper/static/js/2.b5d8251d.chunk.js.LICENSE.txt",
     "static/media/Game.css": "/simple-react-minesweeper/static/media/Splatish-P5vP.b8344367.woff2",
     "static/media/bomb.50cb791f.svg": "/simple-react-minesweeper/static/media/bomb.50cb791f.svg",
     "static/media/bomb1.dab46aa2.svg": "/simple-react-minesweeper/static/media/bomb1.dab46aa2.svg",
@@ -17,8 +17,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.940eb2fe.js",
-    "static/js/2.b74d5fd1.chunk.js",
-    "static/css/main.da18cc0a.chunk.css",
-    "static/js/main.e8c7375b.chunk.js"
+    "static/js/2.b5d8251d.chunk.js",
+    "static/css/main.8005a169.chunk.css",
+    "static/js/main.bf096659.chunk.js"
   ]
 }
