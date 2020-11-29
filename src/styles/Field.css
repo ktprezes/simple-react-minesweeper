@@ -26,18 +26,36 @@
     text-align: center;
     margin: auto ;
     flex-wrap: nowrap;
-    border: firebrick solid 5px;
+    color: saddlebrown;
+    border: saddlebrown solid 5px;
     border-radius: 50px;
-    box-shadow: 0 0 30px 30px yellow;
-    background-color: rgba(255,255,0,0.85);
-    color: firebrick;
     /*matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY())*/
-    animation-name: showmsg;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
 }
 
-@keyframes showmsg {
-    0% {transform:  rotate(60deg) scaleY(.1) scaleX(0.1);}
+.win {
+    color: firebrick;
+    border: firebrick solid 5px;
+    animation-name: showmsgwin;
+    box-shadow: 0 0 30px 30px yellow;
+    background-color: rgba(255,255,0,0.85);
+}
+
+.lost {
+    color: black;
+    border: black solid 5px;
+    animation-name: showmsglost;
+    box-shadow: 0 0 30px 30px darkgray;
+    background-color: rgba(100,100,100,0.85);
+}
+
+@keyframes showmsgwin {
+    0% {transform:  rotate(+60deg) scaleY(.1) scaleX(0.1);}
     100% {transform:  rotate(-20deg) scaleY(2) scaleX(0.7);}
+}
+
+@keyframes showmsglost {
+    0% {transform:  rotate(-60deg) scaleY(.1) scaleX(0.1);}
+    100% {transform:  rotate(+20deg) scaleY(2) scaleX(0.7);}
 }

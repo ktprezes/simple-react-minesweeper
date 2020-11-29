@@ -18,8 +18,14 @@ function Field(props) {
     });
 
 
-    let msg = GameConst.gameStateMsg[props.gameState];
-    let msgElem = msg ? <p className="msg">{msg}</p> : '';
+    let gameState = props.gameState;
+    let msg = GameConst.gameStateMsg[gameState];
+    let msgElemClass = gameState === 'victory'
+        ? "msg win"
+        : gameState === 'defeat'
+            ? "msg lost"
+            : "msg";
+    let msgElem = msg ? <p className={msgElemClass}>{msg}</p> : '';
     // console.log('Field Msg:', msg);
 
     return (

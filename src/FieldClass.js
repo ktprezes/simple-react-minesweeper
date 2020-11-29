@@ -1,4 +1,5 @@
 import Arr2dClass from "./Arr2dClass";
+import GameConst from "./GameConst";
 import CellClass, {cellStates} from "./CellClass";
 
 // --------------------------------------------------------
@@ -28,12 +29,12 @@ class FieldClass extends Arr2dClass {
 
         this.fillWithBombs(noOfBombs);
         this.calculateBombsAroundAllCells();
-        console.log('FieldClass Constructor after "fill with bombs":')
-        console.log(JSON.stringify(this.arr));
+        // console.log("FieldClass Constructor: 'arr' after 'fill with bombs':");
+        // console.log(JSON.stringify(this.arr));
     }; // constructor(rows, cols) {
 
 
-    static checkNoOfBombsParam(noOfBombs, msgBegin = 'FieldClass constructor: '){
+    static checkNoOfBombsParam(noOfBombs, msgBegin = 'FieldClass constructor: ') {
         if (!Number.isSafeInteger(noOfBombs))
             throw new TypeError(`${msgBegin}'noOfBombs' should be non-negative integer value.`);
         if (noOfBombs < 0)
@@ -50,7 +51,7 @@ class FieldClass extends Arr2dClass {
     // and filled with initial count of 'noOfBombs' in random places,
     // and the 'bombsAround' value for every cell is calculated
     resetField() {
-        this.arr = this.initArr(CellClass, false,'closed');
+        this.arr = this.initArr(CellClass, false, 'closed');
 
         this.fillWithBombs(this.noOfBombs);
         this.calculateBombsAroundAllCells();
@@ -76,7 +77,7 @@ class FieldClass extends Arr2dClass {
 
 
     // place randomly 'noOfBombs' somewhere on the 'field'
-    fillWithBombs (noOfBombs) {
+    fillWithBombs(noOfBombs) {
         if (!this.arr || !Number.isSafeInteger(noOfBombs)) return false;
         if (noOfBombs < 1 || noOfBombs > this.rows * this.cols) return false;
 
@@ -105,7 +106,7 @@ class FieldClass extends Arr2dClass {
         // therefore we can destructure that sub-arrays
         // the 'length' of filtered 'cellsAroundIndexes' array
         // should be equal (and it is, I hope) to number of bombs in the near of arr[row][col]
-        return cellsAroundIndexes.filter((idx)=>{
+        return cellsAroundIndexes.filter((idx) => {
             const [r, c] = idx;
             return this.arr[r][c].bomb; // 'bomb' is already of 'boolean' type
         }).length;
@@ -123,16 +124,33 @@ class FieldClass extends Arr2dClass {
     } //calculateBombsAroundAllCells() {
 
 
+    isWinConditionSatisfied() {
+        if (!this.arr) return false;
+
+        let markedCellsWithBombsCounter = 0;
+
+        this.arr.forEach((row) => {
+            row.forEach((cell) => {
+                if (cell && cell.bomb && cell.state === 'marked') {
+                    markedCellsWithBombsCounter++;
+                }
+            })
+        });
+
+        return markedCellsWithBombsCounter === GameConst.noOfBombs;
+    } // isWinConditionSatisfied() {
+
+
     // count number of cells in the field with given 'state'
     // possible state values: cellStates = ['closed', 'open', 'marked'];
-    countCellsWithState(state){
-        if (!this.cells) return 0;
+    countCellsWithState(state) {
+        if (!this.arr) return 0;
         if (!state || !cellStates.includes(state)) return 0;
 
         let count = 0;
         for (let r = 0; r < this.rows; r++) {
             for (let c = 0; c < this.cols; c++) {
-                if (this.cells[r][c].state === state) {
+                if (this.arr[r][c].state === state) {
                     count++;
                 }
             } // for (let j...)

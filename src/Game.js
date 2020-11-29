@@ -22,9 +22,8 @@ const Game = () => {
     // to properly handle the 'state', we need the deep copy of 'myField.arr'
     // (the deeper one then the spread/'...' operator provides)
     const [cellArr, setCellArr] = useState(JSON.parse(myFieldArrStringify));
-    // const [cellArr, setCellArr] = useState();
-    console.log('Game begin');
-    console.log(myFieldArrStringify);
+    // console.log('Game begin');
+    // console.log(myFieldArrStringify);
 
 
     useEffect(() => {
@@ -73,25 +72,28 @@ const Game = () => {
         let col = Number(e.target.dataset.c);
         let cellArrStateShouldUpdate = false;
 
-        console.log(JSON.stringify(myField.arr[row][col]));
+        // console.log(JSON.stringify(myField.arr[row][col]));
 
         if (gameState === 'init' || gameState === 'action') {
+            // first click on a cell -> let's start the game...
             if (gameState === 'init') {
                 setGameState('action');
             }
+
             // handle 'left mouse button' - 'onClick' event
             if (e.which === 1 || e.button === 0) {
                 // console.log('Left mouse button at ' + e.clientX + 'x' + e.clientY);
                 if (cellArr[row][col].state !== 'open') {
-                    console.log('[',row,',',col,']: !open -> open');
+                    // console.log('[',row,',',col,']: !open -> open');
                     myField.arr[row][col].state = 'open';
-                    cellArrStateShouldUpdate = true;
-                }
 
-                // oopppssss.. you've left-clicked
-                // non-open cell with bomb :(
-                if (cellArr[row][col].bomb) {
-                    setGameState('defeat');
+                    // oopppssss.. you've left-clicked
+                    // non-open cell with bomb :(
+                    if (cellArr[row][col].bomb) {
+                        setGameState('defeat');
+                    }
+
+                    cellArrStateShouldUpdate = true;
                 }
             } // end of handle 'left mouse button'
 
@@ -99,14 +101,22 @@ const Game = () => {
             if (e.which === 3 || e.button === 2) {
                 // console.log('Right mouse button at ' + e.clientX + 'x' + e.clientY);
                 if (cellArr[row][col].state === 'closed') {
-                    console.log('[',row,',',col,']: closed -> marked');
+                    // console.log('[',row,',',col,']: closed -> marked');
                     myField.arr[row][col].state = 'marked';
                     setMarkedCellsCount(markedCellsCount + 1);
+                    if (myField.isWinConditionSatisfied()){
+                        setGameState('victory');
+                    }
+
                     cellArrStateShouldUpdate = true;
                 } else if (cellArr[row][col].state === 'marked') {
-                    console.log('[',row,',',col,']: marked -> closed');
+                    // console.log('[',row,',',col,']: marked -> closed');
                     myField.arr[row][col].state = 'closed';
                     setMarkedCellsCount(markedCellsCount - 1);
+                    if (myField.isWinConditionSatisfied()){
+                        setGameState('victory');
+                    }
+
                     cellArrStateShouldUpdate = true;
                 }
             } // end of handle 'right mouse button'
@@ -121,6 +131,7 @@ const Game = () => {
             setGameState('init');
         }
     } // const handleResetBtnClick = (e) => {
+
 
     return (
         <div className="minesweepergame"
