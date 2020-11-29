@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import './styles/FlagsCounter.css';
 
 function FlagsCounter(props) {
-    let bombs = props.marked;
+    let count = props.marked;
 
     // add some spaces between digits of the counter
     return (
         <div className="flagsCounter">
-            {String(bombs).padStart(3,'0').split('').join(' ')}
+            {String(count).padStart(3,'0').split('').join(' ')}
         </div>
     ); /*return() of function FlagsCounter()*/
 }/* function FlagsCounter()*/

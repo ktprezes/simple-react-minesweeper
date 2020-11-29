@@ -18,15 +18,21 @@ function Field(props) {
     });
 
 
+    let msg = GameConst.gameStateMsg[props.gameState];
+    let msgElem = msg ? <p className="msg">{msg}</p> : '';
+    // console.log('Field Msg:', msg);
+
     return (
         <main className="Field">
             {rows}
+            {msgElem}
         </main>
     ); /*return() of function Field()*/
 }/* function Field()*/
 
 Field.propTypes = {
     cellArr: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.instanceOf(CellClass))).isRequired,
+    gameState: PropTypes.string.isRequired,
     myCellClickHandler: PropTypes.func.isRequired
 }
 

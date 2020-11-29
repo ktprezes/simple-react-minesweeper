@@ -4,6 +4,7 @@
     margin: 2px 10px;
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     justify-content: space-around;
     font-family: Monaco, "Courier New", monospace;
     font-size: 20px;
@@ -11,5 +12,32 @@
     background-color: white;
     border: darkred solid 5px;
     border-radius:  30px;
+}
 
+.msg {
+    display:block;
+    position: absolute;
+    z-index: 2;
+    font-family: Splatish, fantasy;
+    font-size: 250px;
+    line-height: 70%;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    margin: auto ;
+    flex-wrap: nowrap;
+    border: firebrick solid 5px;
+    border-radius: 50px;
+    box-shadow: 0 0 30px 30px yellow;
+    background-color: rgba(255,255,0,0.85);
+    color: firebrick;
+    /*matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY())*/
+    animation-name: showmsg;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes showmsg {
+    0% {transform:  rotate(60deg) scaleY(.1) scaleX(0.1);}
+    100% {transform:  rotate(-20deg) scaleY(2) scaleX(0.7);}
 }

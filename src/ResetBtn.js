@@ -1,10 +1,21 @@
-import React, {useState} from "react";
+import React from "react";
 import './styles/ResetBtn.css';
+import PropTypes from "prop-types";
 
-function ResetBtn() {
+function ResetBtn(props) {
     return (
-        <button type="button" className="resetBtn">New</button>
+        <button
+            type="button"
+            className="resetBtn"
+            onClick={props.myResetBtnClickHandler}
+        >New</button>
     ); /*return() of function ResetBtn()*/
 }/* function ResetBtn()*/
+
+
+ResetBtn.propTypes = {
+    myResetBtnClickHandler: PropTypes.func.isRequired
+}
+
 
 export default ResetBtn;
