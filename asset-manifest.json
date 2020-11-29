@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/simple-react-minesweeper/static/css/main.c2bfecd7.chunk.css",
-    "main.js": "/simple-react-minesweeper/static/js/main.d98bde30.chunk.js",
-    "main.js.map": "/simple-react-minesweeper/static/js/main.d98bde30.chunk.js.map",
+    "main.css": "/simple-react-minesweeper/static/css/main.2ebb94ce.chunk.css",
+    "main.js": "/simple-react-minesweeper/static/js/main.84822531.chunk.js",
+    "main.js.map": "/simple-react-minesweeper/static/js/main.84822531.chunk.js.map",
     "runtime-main.js": "/simple-react-minesweeper/static/js/runtime-main.940eb2fe.js",
     "runtime-main.js.map": "/simple-react-minesweeper/static/js/runtime-main.940eb2fe.js.map",
     "static/js/2.981229a8.chunk.js": "/simple-react-minesweeper/static/js/2.981229a8.chunk.js",
     "static/js/2.981229a8.chunk.js.map": "/simple-react-minesweeper/static/js/2.981229a8.chunk.js.map",
     "index.html": "/simple-react-minesweeper/index.html",
-    "static/css/main.c2bfecd7.chunk.css.map": "/simple-react-minesweeper/static/css/main.c2bfecd7.chunk.css.map",
+    "static/css/main.2ebb94ce.chunk.css.map": "/simple-react-minesweeper/static/css/main.2ebb94ce.chunk.css.map",
     "static/js/2.981229a8.chunk.js.LICENSE.txt": "/simple-react-minesweeper/static/js/2.981229a8.chunk.js.LICENSE.txt",
     "static/media/Game.css": "/simple-react-minesweeper/static/media/Splatish-P5vP.b8344367.woff2",
     "static/media/bomb.50cb791f.svg": "/simple-react-minesweeper/static/media/bomb.50cb791f.svg",
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.940eb2fe.js",
     "static/js/2.981229a8.chunk.js",
-    "static/css/main.c2bfecd7.chunk.css",
-    "static/js/main.d98bde30.chunk.js"
+    "static/css/main.2ebb94ce.chunk.css",
+    "static/js/main.84822531.chunk.js"
   ]
 }
