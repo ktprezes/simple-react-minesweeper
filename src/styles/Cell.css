@@ -37,7 +37,8 @@
 }
 
 .marked {
-    background-color: lightyellow;
+    /*background-color: lightyellow;*/
+    background-color: yellow;
 }
 
 .open {
@@ -49,5 +50,6 @@
 }
 
 .boom {
-    background-color: lightgoldenrodyellow;
+    /*background-color: lightgoldenrodyellow;*/
+    background-color: yellow;
 }

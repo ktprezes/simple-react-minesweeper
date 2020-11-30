@@ -25,7 +25,9 @@ function Field(props) {
         : gameState === 'defeat'
             ? "msg lost"
             : "msg";
-    let msgElem = msg ? <p className={msgElemClass}>{msg}</p> : '';
+    let msgElem = msg ? <p
+        className={msgElemClass}
+    >{msg}</p> : '';
     // console.log('Field Msg:', msg);
 
     return (

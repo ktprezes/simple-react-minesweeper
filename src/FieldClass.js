@@ -1,6 +1,6 @@
 import Arr2dClass from "./Arr2dClass";
 import GameConst from "./GameConst";
-import CellClass, {cellStates} from "./CellClass";
+import CellClass from "./CellClass";
 
 // --------------------------------------------------------
 // definition of 'FieldClass' - the 'prototype' of the 'field'
@@ -141,23 +141,77 @@ class FieldClass extends Arr2dClass {
     } // isWinConditionSatisfied() {
 
 
-    // count number of cells in the field with given 'state'
-    // possible state values: cellStates = ['closed', 'open', 'marked'];
-    countCellsWithState(state) {
-        if (!this.arr) return 0;
-        if (!state || !cellStates.includes(state)) return 0;
+    // sets the state of all cells (besides these properly-marked) to 'open'
+    // method used after finishing the game to show the whole field
+    // (properly marked cells with bombs remain marked - to show proper icon)
+    revealRemainingCells() {
+        if (!this.arr) return false;
 
-        let count = 0;
-        for (let r = 0; r < this.rows; r++) {
-            for (let c = 0; c < this.cols; c++) {
-                if (this.arr[r][c].state === state) {
-                    count++;
+        this.arr.forEach((row) => {
+            row.forEach((cell) => {
+                if (cell && !(cell.bomb && cell.state === 'marked')) {
+                    cell.state = 'open';
                 }
-            } // for (let j...)
-        } // for (let i...)
+            })
+        });
+    } // revealRemainingCells() {
 
-        return count;
-    } // countCellsWithState(state){
+
+    // sets to 'open' the state off all adjacent cells with 'bombsAround' == 0,
+    // and their neighbors, starting from the given cell
+    // returns the number of all opened cells
+    revealAdjacentEmptyCells(row, col) {
+        if (!this.arr) return 0;
+        if (!this.isRowColInRange(row, col)) return 0;
+        if (!this.arr[row][col] || !this.arr[row][col].bombsAround === 0) return 0;
+
+        // treat the indexes of the given cell as a seed
+        let cellsToOpenIdx = [[row, col]];
+
+        // as the first step make a list of indexes
+        // of all adjacent cells with 0 bombs in the near
+        // take into account the 4-directions (NSWE) adjacency
+        // without 'index wrapping'
+        // we use 'do.. while()', and not the 'map/forEach' methods
+        // because we modify the original array 'cellsToOpenIdx'
+        // and this may lead to tricky errors with 'map/forEach'
+        let i = 0;
+        do {
+            let [r, c] = cellsToOpenIdx[i];
+            this.adjacency4IndexesList(r, c,false ).forEach((currNeighborIdx) => {
+                let [r1, c1] = currNeighborIdx;
+                // check if the neighbor has 0 bombs in the near, too
+                if (this.arr[r1][c1].bombsAround === 0) {
+                    this.addIfNotIncluded(cellsToOpenIdx, currNeighborIdx);
+                }
+            })
+        } while (++i < cellsToOpenIdx.length);
+
+        // right now we have to have the list of indexes
+        // of all adjacent cells with 0 bombs in the near
+        // let's try to open that cells
+        cellsToOpenIdx.forEach((cellIdx) => {
+            let [r, c] = cellIdx;
+            this.arr[r][c].state = 'open';
+        })
+
+        // we open the neighbors of that empty, 0-bomb surrounded cells, too
+        // this time we consider  the 8-directions adjacency
+        let neighborsIdx = [];
+        cellsToOpenIdx.forEach((cellIdx) => {
+            let [r, c] = cellIdx;
+            this.adjacency8IndexesList(r,c,false).forEach((neighbor) => {
+                let [r1,c1] = neighbor;
+                if (this.arr[r1][c1].state !== 'open'){
+                    neighborsIdx.push(neighbor);
+                    this.arr[r1][c1].state = 'open';
+                }
+            })
+        })
+
+        return cellsToOpenIdx.length + neighborsIdx.length;
+    } // revealAdjacentEmptyCells(row, col) {
+
 
 } // class FieldClass {
 

@@ -3,8 +3,8 @@
     padding: 2px;
     padding-top: 10px;
     margin: 5px 5px;
-    display: inline-flex;
-    justify-content: center;
+    display: flex;
+    justify-content: space-evenly;
     font-family: 'Splatish', fantasy;
     font-size: 80px;
 
@@ -14,3 +14,8 @@
     border-radius:  20px;
     box-shadow: 0 0 8px 8px darkred;
 }
+
+/*there was an idea to style individual digits somehow*/
+.d0 {}
+.d1 {}
+.d2 {}

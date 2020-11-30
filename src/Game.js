@@ -83,14 +83,20 @@ const Game = () => {
             // handle 'left mouse button' - 'onClick' event
             if (e.which === 1 || e.button === 0) {
                 // console.log('Left mouse button at ' + e.clientX + 'x' + e.clientY);
-                if (cellArr[row][col].state !== 'open') {
-                    // console.log('[',row,',',col,']: !open -> open');
+                if (myField.arr[row][col].state !== 'open') {
+                    console.log('[',row,',',col,']: !open -> open');
                     myField.arr[row][col].state = 'open';
 
                     // oopppssss.. you've left-clicked
                     // non-open cell with bomb :(
-                    if (cellArr[row][col].bomb) {
+                    if (myField.arr[row][col].bomb) {
+                        myField.revealRemainingCells();
                         setGameState('defeat');
+                    } else if (myField.arr[row][col].bombsAround === 0) {
+                        // left-clicked empty cell with 0 bombs in the near,
+                        // so reveal all adjacent cells with 0 bombs
+                        // in the near and their neighbors
+                        myField.revealAdjacentEmptyCells(row, col);
                     }
 
                     cellArrStateShouldUpdate = true;
@@ -105,6 +111,7 @@ const Game = () => {
                     myField.arr[row][col].state = 'marked';
                     setMarkedCellsCount(markedCellsCount + 1);
                     if (myField.isWinConditionSatisfied()){
+                        myField.revealRemainingCells();
                         setGameState('victory');
                     }
 
@@ -114,6 +121,7 @@ const Game = () => {
                     myField.arr[row][col].state = 'closed';
                     setMarkedCellsCount(markedCellsCount - 1);
                     if (myField.isWinConditionSatisfied()){
+                        myField.revealRemainingCells();
                         setGameState('victory');
                     }
 

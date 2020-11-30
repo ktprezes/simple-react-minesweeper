@@ -6,9 +6,15 @@ function FlagsCounter(props) {
     let count = props.marked;
 
     // add some spaces between digits of the counter
+    //.join(' ')}
+    let counterString = String(count).padStart(3,'0').split('').map((digit, i)=>{
+        let cl = 'd'+i;
+        return <span className={cl} key={cl} >{digit}</span>
+    }).concat();
+
     return (
         <div className="flagsCounter">
-            {String(count).padStart(3,'0').split('').join(' ')}
+            {counterString}
         </div>
     ); /*return() of function FlagsCounter()*/
 }/* function FlagsCounter()*/
