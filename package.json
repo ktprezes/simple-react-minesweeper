@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "use-sound": "^2.0.1"
   }
 }

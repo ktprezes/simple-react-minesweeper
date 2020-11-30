@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import GameConst from "./GameConst";
-import Cell from './Cell';
 import CellClass from "./CellClass";
+import Cell from './Cell';
 import './styles/Row.css';
 
 

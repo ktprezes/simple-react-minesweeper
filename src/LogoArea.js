@@ -1,6 +1,6 @@
 import React from "react";
-import './styles/LogoArea.css';
 import logo from "./images/bomb.svg";
+import './styles/LogoArea.css';
 
 function LogoArea() {
     return (

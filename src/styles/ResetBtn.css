@@ -14,3 +14,8 @@
     border-radius:  38px;
     box-shadow: 0 0 8px 5px darkred;
 }
+
+.resetBtn:hover{
+    transform: scaleY(0.9) scaleX(1.1);
+    cursor: pointer;
+}

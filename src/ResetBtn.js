@@ -1,6 +1,6 @@
 import React from "react";
-import './styles/ResetBtn.css';
 import PropTypes from "prop-types";
+import './styles/ResetBtn.css';
 
 function ResetBtn(props) {
     return (

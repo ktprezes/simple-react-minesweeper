@@ -1,6 +1,6 @@
 import React from "react";
-import CellClass from "./CellClass";
 import PropTypes from 'prop-types';
+import CellClass from "./CellClass";
 import bomb from "./images/bomb1.svg";
 import boom from "./images/boom1.svg";
 import './styles/Cell.css';

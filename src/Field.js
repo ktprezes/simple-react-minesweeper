@@ -8,6 +8,9 @@ import './styles/Field.css';
 function Field(props) {
     const rowNumbers = [...Array(GameConst.rows).keys()];
 
+    let gameState = props.gameState;
+    let msg = GameConst.gameStateMsg[gameState];
+
     const rows = rowNumbers.map((no) => {
         let rowNo = no.toString();
         return <Row key={'r'+rowNo}
@@ -17,14 +20,12 @@ function Field(props) {
                 />
     });
 
-
-    let gameState = props.gameState;
-    let msg = GameConst.gameStateMsg[gameState];
     let msgElemClass = gameState === 'victory'
         ? "msg win"
         : gameState === 'defeat'
             ? "msg lost"
             : "msg";
+
     let msgElem = msg ? <p
         className={msgElemClass}
     >{msg}</p> : '';

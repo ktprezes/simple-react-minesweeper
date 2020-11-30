@@ -11,7 +11,10 @@ const GameConst = {
         'action':  '',
         'defeat':  'YOU LOST',
         'victory': 'YOU WIN'
-    }
+    },
+    audioPath: './sounds/',
+    imgPath: './images/',
+    stylePath: './styles/'
 } // const GameConst
 
 export default GameConst;

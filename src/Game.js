@@ -8,6 +8,7 @@ import './styles/Game.css';
 
 
 const myField = new FieldClass(GameConst.rows, GameConst.cols, GameConst.noOfBombs);
+
 let intervalID = null;
 
 const Game = () => {
@@ -84,7 +85,12 @@ const Game = () => {
             if (e.which === 1 || e.button === 0) {
                 // console.log('Left mouse button at ' + e.clientX + 'x' + e.clientY);
                 if (myField.arr[row][col].state !== 'open') {
-                    console.log('[',row,',',col,']: !open -> open');
+                    // console.log('[',row,',',col,']: !open -> open');
+                    // when the state was 'marked' we have to update the counter!
+                    if (myField.arr[row][col].state === 'marked') {
+                        setMarkedCellsCount(markedCellsCount - 1);
+                    }
+
                     myField.arr[row][col].state = 'open';
 
                     // oopppssss.. you've left-clicked
